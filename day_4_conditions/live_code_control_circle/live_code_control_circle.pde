@@ -12,7 +12,7 @@ float y;
 void setup() {
   size(600, 600);
   
-  up = true;
+  up = false;
   down = false;
   left = false;
   right = false;

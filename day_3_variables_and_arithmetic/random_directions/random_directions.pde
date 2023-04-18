@@ -6,6 +6,8 @@ float dirY;
 void setup() {
   size(400, 400);
   
+  noStroke();
+  
   myCircleX = 100;
   myCircleY = 100;
   dirX = random(1);
@@ -31,7 +33,7 @@ void draw() {
   
   circle(myCircleX * random(1), myCircleY, 20);
   
-  fill(0, 255, 0);
+  fill(myCircleX % 255, myCircleY % 255, (myCircleX / 2) % 255);
 
   circle(myCircleX * random(1), myCircleY * random(2), 20);
 }
