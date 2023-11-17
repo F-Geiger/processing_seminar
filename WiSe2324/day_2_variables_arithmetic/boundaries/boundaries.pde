@@ -18,8 +18,8 @@ void draw() {
   fill(0);
   
   circleX = circleX + dirX;
-  
-  if (circleX + (CIRCLE_EXTEND / 2) >= width || circleX - (CIRCLE_EXTEND / 2) <= 0) {
+  boolean isWidthWallHit = circleX + (CIRCLE_EXTEND / 2) >= width;
+  if (isWidthWallHit || circleX - (CIRCLE_EXTEND / 2) <= 0) {
     dirX = dirX * -1;
   }
   

@@ -11,7 +11,7 @@ void draw() {
   background(255);
   fill(0);
   
-  circleX = (circleX + 1) % width; // + - / * %
+  circleX = circleX + 1;
   
   circle(circleX, circleY, 100);
 }
