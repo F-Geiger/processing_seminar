@@ -1,5 +1,5 @@
-int NUMBER_SHAPES = 400;
-int NUMBER_VERTICIES_PER_SHAPE = 4;
+int NUMBER_SHAPES = 10;
+int NUMBER_VERTICIES_PER_SHAPE = 100;
 
 PShape[] shapes;
 float[] xs;

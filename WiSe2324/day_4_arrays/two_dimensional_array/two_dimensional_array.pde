@@ -46,5 +46,9 @@ void draw() {
   strokeWeight(4);
   beginShape();
   
+  for (int i = 0; i < NUMBER_VERTICIES; i += 1) {
+    curveVertex(verticies[i][0], verticies[i][1]);
+  }
+  
   endShape();
 }
