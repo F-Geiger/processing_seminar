@@ -101,7 +101,7 @@ if (mouseIsPressed) {
 
 ## random
 
-`random` gibt uns eine komplett (pseudo-)zufällige Zahl zwischen 0.0 und 1.0 zurück. Es ist aber auch möglich einen Wertebereich anzugeben.
+`random` gibt uns eine komplett ([pseudo-](https://de.wikipedia.org/wiki/Pseudozufall))zufällige Zahl zwischen 0.0 und 1.0 zurück. Es ist aber auch möglich einen Wertebereich anzugeben.
 
 ```js
 random(); // gibt eine Zahl von 0.0 bis 1.0 zurück
@@ -111,7 +111,7 @@ random(14, 98); // gibt eine Zahl von 14.0 bis 98.0 zurück
 
 ## noise
 
-Ähnlich wie `random` gibt uns `noise` eine Zahl zwischen 0.0 und 1.0 zurück. Allerdings wirken die Zahlen nicht komplett (pseudo-)zufällig. Viel eher wirken die Zahlen so, als würden sie zueinander gehören (wir hatten das Beispiel mit der Kerze, deren Bewegung wir zwar nicht wirklich vorhersagen können, aber deren Bewegung trotzdem als zusammenhängen wahrnehmen).
+Ähnlich wie `random` gibt uns `noise` eine Zahl zwischen 0.0 und 1.0 zurück. Allerdings wirken die Zahlen nicht komplett ([pseudo-](https://de.wikipedia.org/wiki/Pseudozufall))zufällig. Viel eher wirken die Zahlen so, als würden sie zueinander gehören (wir hatten das Beispiel mit der Kerze, deren Bewegung wir zwar nicht wirklich vorhersagen können, aber deren Bewegung trotzdem als zusammenhängen wahrnehmen).
 
 ```js
 function draw() {
