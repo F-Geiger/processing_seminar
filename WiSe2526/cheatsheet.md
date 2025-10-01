@@ -117,7 +117,7 @@ random(14, 98); // gibt eine Zahl von 14.0 bis 98.0 zurück
 function draw() {
     // ... andere Dinge
 
-    circleX = noise(step) * width;
+    let circleX = noise(step) * width;
 
     circle(circleX, 100, 20); // Zeichnet einen Kreis, der sich durch noise zwischen auf der Canvasfläche hin und her bewegt.
 
