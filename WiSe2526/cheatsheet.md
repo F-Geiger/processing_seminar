@@ -19,7 +19,7 @@ function draw() {
 }
 ```
 
-## Shapes
+## Formen
 
 ```js
     rect(10, 20, 30, 40); // x, y, width, height  -  x und y meinen die obere linke Ecke des Rechteckes
@@ -27,7 +27,7 @@ function draw() {
     // Weitere Formen: https://p5js.org/reference/#Shape
 ```
 
-## Color
+## Farben
 
 ```js
     background('#ffffff'); // Überschreibt alle Pixel
@@ -50,7 +50,7 @@ Außerdem kann sowohl bei der dezimal als auch bei der hexadezimal Schreibweise 
 * `fill(20, 40, 20, 125)`
 * `fill('#FF0022AA')`
 
-## variables
+## Variablen
 
 Variablen bieten die Möglichkeit Werte zu "speichern" und dann mehrfach zu verwenden. Mit Variablen können auch Zustände über einen draw()-Durchgang hinaus "gespeichert" werden.
 
@@ -124,5 +124,84 @@ function draw() {
     step = step + stepSize;
 
     // ... andere Dinge
+}
+```
+
+## If
+
+Mit `if` können wir eine Abzweigung im Programmverlauf vornehmen. `if` benötigt eine Kondition und einen Programmblock. Wenn die Kondition sich erfüllt (wahr ist), dann wird der Programmblock ausgeführt. Wenn sich die Kondition nicht erfüllt (falsch ist), wird der Programmblock *nicht* ausgeführt.
+
+```js
+if (Kondition) {
+    // Tue etwas
+}
+```
+
+In der letzten Sitzung sind wir mit `if` sichergegangen, das der fallende Ball niemals den Canvas verlässt. Wenn der Ball tiefer als das Ende vom Canvas ist, dann soll der Ball genau auf dem Ende des Canvas liegen und sich seine Geschwindigkeit umdrehen.
+
+```js
+if (ballY >= height) {
+    ballY = height;
+    velocityY = velocityY * -1;
+}
+```
+
+## Objekte
+
+Wollten wir mit einer größeren Menge an Dingen arbeiten, z.B. mit 10 Bällen, die im Canvas hin und her springen, wäre es lästig für alle Bälle jeweils 4 Variablen zu pflegen (x, y, velocityX, velocityY). Stattdessen können wir für jeden Ball ein Objekt definieren, dass alle 4 Werte in sich hält.
+
+```js
+let ball1 = {
+    x: 10,
+    y: 20,
+    veloctiyX: 2,
+    velocityY: 5
+};
+```
+
+Um jetzt auf die Werte zuzugreifen, müssen wir folgendes tun:
+
+```js
+ball1.velocityY = ball1.velocityY + GRAVITY;
+ball1.y = ball1.y + ball1.velolictyY;
+```
+
+Hier mag es erstmal so vorkommen, dass Objekte höchsten eine angenehmere Schreibweise sind. Spätestens mit Schleifen und Listen aber, werden Objekte äußerst praktisch sein.
+
+## Funktionen
+
+Funktionen sind nützlich, um Code mehrfach zu verwenden. Beim Beispiel mit dem Ball-Objekt können wir die gesamte update-Logik in eine Funktion schreiben, um sie unabhägig von einem ball-Objekt für alle beliebigen ball-Objekte benutzen zu können.
+
+```js
+
+function draw() {
+    ball1 = updateBall(ball1);
+    ball2 = updateBall(ball2);
+    ball3 = updateBall(ball3);
+
+    // ...
+}
+
+function updateBall(ball) {
+    // ändere ball Werte
+    return ball; //gibt den veränderten Ball zurück
+}
+```
+
+Der gesamte Code ist hier zu finden: https://editor.p5js.org/f.geigr/sketches/eoXKML4aw
+
+Es ist natürlich auch denkbar, dass wir eine komplizierte Form in einer Funktion auslagern, um diese Form dann immer wieder zu zeichnen.
+
+```js
+function draw() {
+    smiley(10, 10, 100, 100);
+    smiley(50, 200, 200, 200);
+
+    // ...
+}
+
+function smiley(x, y, width, height) {
+    circle(x, y, width height) // Kopf
+    // ... Augen, Mund, etc.
 }
 ```
