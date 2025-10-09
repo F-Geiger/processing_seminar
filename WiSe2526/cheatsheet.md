@@ -205,3 +205,24 @@ function smiley(x, y, width, height) {
     // ... Augen, Mund, etc.
 }
 ```
+
+## For-Schleife
+
+Es ist natürlich müselig, wenn wir z.B. 30 Kreise zeichnen wollen, tatsächlich 30 Mal `circle(...)` zu schreiben und anzupassen. Einfacher wäre es, wir könnten eine Programmstelle 30 Mal laufen lassen. Oder 50 Mal, oder 100, oder ...
+
+Dafür können wir Schleifen verwenden. Und an dieser Stelle nutzen wir for-Schleifen. Mit `for` können wir einen Programmblock beliebig häufig ausführen lassen. Bei `for` tragen wir dann durch alle Durchläufe eine Variable mit (meist `i` genannt). `i` zeigt uns an, in welchem Durchlauf wir uns befinden: im 1. oder im 23. oder ...
+
+Um `i` zu verwenden braucht es drei Dinge:
+1. Einen Startwert. (Im Code `1` siehe: `let i = 0`)
+2. Einen Grenzwert, also bis wann wir die Schleife wiederholen wollen. (Im Code 30 Mal: `i <= 30`)
+3. Eine Schrittgröße (Im Code 1: `i += 1`, wobei `i += 1` das gleiche ist wie `i = i + 1` nur kürzer)
+
+```js
+stroke(255);
+fill(0);
+for (let i = 1; i <= 30; i += 1) {
+    circle(i * 10, i * 10, i * 3);
+}
+```
+
+Dieser Code zeichnet uns 30 Kreise, angefangen in der linken oberen Ecke, diagonal versetzt in das Bild hinein.
