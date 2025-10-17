@@ -226,3 +226,78 @@ for (let i = 1; i <= 30; i += 1) {
 ```
 
 Dieser Code zeichnet uns 30 Kreise, angefangen in der linken oberen Ecke, diagonal versetzt in das Bild hinein.
+
+## Arrays/Listen
+
+Arrays sind sehr praktisch, wenn wir mit einer variablen Menge an Objekten, Zahlen und dergleichen arbeiten wollen. Im Altag begengnen uns tatsächlich überall diese Arrays: der Instagram Feed besteht aus Posts (variable Menge an Posts), die Google Suche zeigt uns Suchergebnisse (auch in variabler Menge), usw...
+
+Erst einmal aber ein Beispiel mit einer festen Anzahl an Bällen, die aber in einem Array gespeichert sind.
+
+```js
+// Als erstes initialisieren wir uns das Bälle Array mit 2 Bällen
+let balls = [
+    {
+        x: 100,
+        y: 100,
+        velocityX: 7,
+        velocityY: 2,
+        radius: 10
+    },
+    {
+        x: 100,
+        y: 200,
+        velocityX: 4,
+        velocityY: 10,
+        radius: 20
+    }
+];
+
+function setup() {
+    // setup Sachen..
+}
+
+function draw() {
+    background(255);
+
+    // hier können wir nun mit Hilfe des richtigen Indizes auf die einzelnen Bälle zugreifen. Die Indizes laufen in der Reihenfolge, in der die Bälle oben stehen von 0 bis Arraylänge - 1. Also in diesem Beispeil von 0 bis 1.
+    updateBall(balls[0]);
+    updateBall(balls[1]);
+
+    circle(ball[0].x, ball[0].y, ball[0].radius * 2);
+    circle(ball[1].x, ball[1].y, ball[1].radius * 2);
+}
+```
+
+Zusammen mit For-Schleifen können wir nun aber auch beliebig viele Bälle erzeugen, ohne für mehr Bälle mehr Code schreiben zu müssen. Also wir brauchen nicht noch `updateBall(balls[2])`, `updateBall(balls[100])`, `updateBall(balls[122])`, usw. 
+
+```js
+let balls = [] // Wir initialisieren ein LEERES Array
+
+function setup() {
+  //setup Sachen..
+
+  // Und dann erzeugen wir beliebig viele Bälle. In diesem Fall 5000.
+  for (let i = 0; i < 5000; i += 1) {
+    balls[i] = {
+      x: random(width),
+      y: random(height),
+      velocityX: random(-5, 5),
+      velocityY: random(-5, 5),
+      radius: random(20),
+      fillColor: color(random(255), random(255), random(255))
+    };
+  }
+}
+
+function draw() {
+  background(0);
+  
+  // Zu letzt gehen wir bei jedem draw Durchlauf alle Bälle durch, updaten deren Position und zeichnen diese dann.
+  // FYI: balls.length gibt uns die Anzahl der Bälle
+  for (let i = 0; i < balls.length; i += 1) {
+    updateBall(balls[i]);
+    fill(balls[i].fillColor);
+    circle(balls[i].x, balls[i].y, balls[i].radius * 2);
+  }
+}
+```
